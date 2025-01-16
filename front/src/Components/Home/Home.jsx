@@ -22,11 +22,22 @@ function Home() {
     // Décoder l'ID utilisateur depuis le token JWT
     const decodeUserIdFromToken = () => {
         if (token) {
-            const decodedToken = JSON.parse(atob(token.split(".")[1]));
-            setUserId(decodedToken.id); // Récupère l'ID de l'utilisateur connecté
-            setIsAuthenticated(true); // L'utilisateur est connecté
+            try {
+                const parts = token.split(".");
+                if (parts.length === 3) {
+                    const decodedToken = JSON.parse(atob(parts[1]));
+                    setUserId(decodedToken.id); // Récupère l'ID de l'utilisateur connecté
+                    setIsAuthenticated(true); // L'utilisateur est connecté
+                } else {
+                    throw new Error("Token mal formé");
+                }
+            } catch (error) {
+                console.error("Erreur de décodage du token:", error);
+                setIsAuthenticated(false); // Définit l'état d'authentification sur false si le token est invalide
+            }
         }
     };
+    
 
     // Fonction pour récupérer toutes les publications
     const fetchPubs = async () => {
