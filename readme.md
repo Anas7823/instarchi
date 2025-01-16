@@ -2,15 +2,15 @@
 
 - Les endpoints disponibles :
 
-| Endpoint | Description |
+| Endpoint | Description | Type
 | --- | --- |
-| http://localhost:4000/pub/create | Crée une nouvelle publication |
-| http://localhost:4000/pub/ | Permet de récupérer toutes les publications sans|
-| http://localhost:4000/pub/:id | Retourne une publication par son id |
-| http://localhost:4000/pub/:id | Met à jour une publication |
-| http://localhost:4000/pub/:id | Supprime une publication |
-| http://localhost:4000/user/login | connexion |
-| http://localhost:4000/user/register | inscription |
+| http://localhost:4000/pub/create | Crée une nouvelle publication | POST |
+| http://localhost:4000/pub/ | Permet de récupérer toutes les publications sans| GET |
+| http://localhost:4000/pub/:id | Retourne une publication par son id | GET |
+| http://localhost:4000/pub/:id | Met à jour une publication | PUT |
+| http://localhost:4000/pub/:id | Supprime une publication | DELETE |
+| http://localhost:4000/user/login | connexion | POST |
+| http://localhost:4000/user/register | inscription | POST |
 
 - Comment lancer les services:
 
